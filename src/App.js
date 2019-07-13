@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
+import LotteryGame from './LotteryGame'
+import IncredimillionsCard from './IncredimillionsCard'
 
 function App() {
   return (
     <div className="App">
-      <h1> hi </h1>
+      <LotteryGame />
+      <IncredimillionsCard />
     </div>
   );
 }
