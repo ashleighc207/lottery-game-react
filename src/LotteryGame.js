@@ -34,15 +34,17 @@ class LotteryGame extends Component {
 	render(){
 		return(
 			<div className="LotteryGame">
-				<LotteryBall 
-					data={this.state.lottoNums}
-					title={this.props.title}
-					key={Math.random() * 10} 
-				/>
-				<IncredimillionsCard 
-					lottoNums={this.state.myNums}
-				/>
-				<button onClick={this.genLottoNums}>Let's play!</button>
+				<div className="LotteryGame-game-container">
+					<LotteryBall 
+						data={this.state.lottoNums}
+						title={this.props.title}
+						key={Math.random() * 10} 
+					/>
+					<IncredimillionsCard 
+						lottoNums={this.state.myNums}
+					/>
+				</div>
+				<button className="LotteryGame-btn" onClick={this.genLottoNums}>Let's play!</button>
 			</div>
 		)
 	}

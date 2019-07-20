@@ -7,9 +7,11 @@ class LotteryBall extends Component {
 		return(
 			<div className="LotteryBall">
 				<h1>{this.props.title}</h1>
-				{this.props.data.map(n => {
-					return <p>{n}</p>;
-				})}
+				<div>
+					{this.props.data.map(n => {
+						return <p key={Math.random() * 10}>{n}</p>;
+					})}
+				</div>
 			</div>
 		)
 	}

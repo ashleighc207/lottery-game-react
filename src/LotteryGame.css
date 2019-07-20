@@ -1,0 +1,28 @@
+.LotteryGame {
+	display: flex;
+	flex-direction: column;
+	max-width: 960px;
+	align-content: center;
+	margin: 0 auto;
+}
+
+.LotteryGame-game-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.LotteryGame-btn {
+	width: 200px;
+	margin: 0 auto;
+	height: 52px;
+	border-radius: 30px;
+	font-size: 22px;
+	background: linear-gradient(14deg, rgba(75,167,203,1) 0%, rgba(96,144,214,0.4464151651651652) 100%);
+	color: #ffffff;
+	border: none;
+	box-shadow: 2px 2px 3px rgba(33,33,33,0.3);
+}
+
+.LotteryGame-btn:focus {
+	outline: none;
+}
