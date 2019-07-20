@@ -5,8 +5,11 @@ import './LotteryBall.css';
 class LotteryBall extends Component {
 	render(){
 		return(
-			<div>
-				<h1>AM A BALL</h1>
+			<div className="LotteryBall">
+				<h1>{this.props.title}</h1>
+				{this.props.data.map(n => {
+					return <p>{n}</p>;
+				})}
 			</div>
 		)
 	}

@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './LotteryGame.css';
 
 import LotteryBall from './LotteryBall'
+import IncredimillionsCard from './IncredimillionsCard'
 
 class LotteryGame extends Component {
 	constructor(props){
 		super(props);
 		this.genLottoNums = this.genLottoNums.bind(this)
 		this.state = {
-			lottoNums: []
+			lottoNums: [],
+			myNums: []
 		}
 	}
 	static defaultProps = {
@@ -18,25 +20,29 @@ class LotteryGame extends Component {
 	}
 	genLottoNums(){
 		const num = this.props.gameLength;
-		let numArr = [];
+		let lottoArr = [], myNumsArr = [];
 		for(let i = 0; i < num; i++){
-			numArr.push(Math.ceil(Math.random() * 10))
+			myNumsArr.push(Math.ceil(Math.random() * 10))
+			lottoArr.push(Math.ceil(Math.random() * 10))
 		}
-		this.setState({lottoNums: numArr})
+		this.setState({
+			lottoNums: lottoArr,
+			myNums: myNumsArr
+		})
 	}
 
 	render(){
-
 		return(
 			<div className="LotteryGame">
-				{this.state.lottoNums.map((l) => { 
-					return <LotteryBall 
-								data={l}
-								key={Math.random() * 10} 
-								/>
-					})
-				}
-				<button onClick={this.genLottoNums}>I wanna play!</button>
+				<LotteryBall 
+					data={this.state.lottoNums}
+					title={this.props.title}
+					key={Math.random() * 10} 
+				/>
+				<IncredimillionsCard 
+					lottoNums={this.state.myNums}
+				/>
+				<button onClick={this.genLottoNums}>Let's play!</button>
 			</div>
 		)
 	}
