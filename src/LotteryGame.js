@@ -10,7 +10,8 @@ class LotteryGame extends Component {
 		this.genLottoNums = this.genLottoNums.bind(this)
 		this.state = {
 			lottoNums: [],
-			myNums: []
+			myNums: [],
+			isWinner: false
 		}
 	}
 	static defaultProps = {
@@ -20,6 +21,7 @@ class LotteryGame extends Component {
 	}
 	genLottoNums(){
 		const num = this.props.gameLength;
+		let isWinner = false;
 		let lottoArr = [], myNumsArr = [];
 		for(let i = 0; i < num; i++){
 			myNumsArr.push(Math.ceil(Math.random() * 10))
@@ -29,11 +31,17 @@ class LotteryGame extends Component {
 			lottoNums: lottoArr,
 			myNums: myNumsArr
 		})
+
+		if(lottoArr.sort((a,b)=> {return a-b}).join(',') === myNumsArr.sort((a,b)=> {return a-b}).join(',')) {
+			this.setState({isWinner: true})
+		} 
+
 	}
 
 	render(){
 		return(
 			<div className="LotteryGame">
+				{this.state.isWinner ? <h1 className="LotteryGame-winner">You won the {this.state.props.title}!</h1> : null}
 				<div className="LotteryGame-game-container">
 					<LotteryBall 
 						data={this.state.lottoNums}
