@@ -1,4 +1,4 @@
-# React Bootcamp Project #3
+# React Bootcamp Project #4
 
 ### React - Lottery Game - State Manipulation
 
